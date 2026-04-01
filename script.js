@@ -5,7 +5,6 @@ const menuCloseIcon = document.getElementById("menuCloseIcon");
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section[id]");
 const fadeElements = document.querySelectorAll(".fade-up");
-const progressFills = document.querySelectorAll(".progress-fill");
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
@@ -19,7 +18,7 @@ if (menuToggle) {
 
 navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-        if (!mobileMenu.classList.contains("hidden")) {
+        if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
             mobileMenu.classList.add("hidden");
             menuOpenIcon.classList.remove("hidden");
             menuCloseIcon.classList.add("hidden");
@@ -33,12 +32,10 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
 
-                if (entry.target.querySelectorAll(".progress-fill").length > 0) {
-                    const bars = entry.target.querySelectorAll(".progress-fill");
-                    bars.forEach((bar) => {
-                        bar.style.width = bar.dataset.width;
-                    });
-                }
+                const bars = entry.target.querySelectorAll(".progress-fill");
+                bars.forEach((bar) => {
+                    bar.style.width = bar.dataset.width;
+                });
             }
         });
     },
@@ -82,12 +79,12 @@ if (contactForm) {
 
         if (!name || !email || !message) {
             formMessage.textContent = "Please fill in all fields.";
-            formMessage.className = "text-sm font-medium text-red-500 block";
+            formMessage.className = "text-sm font-medium text-red-400 block";
             return;
         }
 
         formMessage.textContent = "Message sent successfully! This is a demo form.";
-        formMessage.className = "text-sm font-medium text-green-600 block";
+        formMessage.className = "text-sm font-medium text-green-400 block";
 
         contactForm.reset();
 
