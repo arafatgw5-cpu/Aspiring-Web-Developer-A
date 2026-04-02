@@ -4,764 +4,1274 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Easin Arafat | Developer Portfolio</title>
-
+    <title>Easin Arafat | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: "#0F172A",
-                        darkCard: "#111827",
-                        darkCard2: "#1E293B",
-                        neonBlue: "#3B82F6",
-                        neonPurple: "#8B5CF6",
-                        neonCyan: "#06B6D4",
-                        softText: "#CBD5E1",
-                        mutedText: "#94A3B8",
-                        borderGlow: "rgba(148, 163, 184, 0.18)"
-                    },
-                    boxShadow: {
-                        glow: "0 0 0 1px rgba(139,92,246,.18), 0 12px 40px rgba(59,130,246,.18)",
-                        card: "0 10px 30px rgba(2, 6, 23, 0.45)"
-                    },
-                    backgroundImage: {
-                        heroGlow:
-                            "radial-gradient(circle at top left, rgba(139,92,246,.25), transparent 35%), radial-gradient(circle at top right, rgba(6,182,212,.20), transparent 30%), linear-gradient(135deg, #0F172A 0%, #111827 40%, #1E1B4B 100%)",
-                        cardGlow:
-                            "linear-gradient(135deg, rgba(139,92,246,.12), rgba(59,130,246,.10), rgba(6,182,212,.08))"
-                    }
-                }
-            }
-        };
-    </script>
-
     <style>
+        :root {
+            --bg: #080B18;
+            --bg2: #0D1020;
+            --bg3: #111426;
+            --card: #12162B;
+            --card2: #161A30;
+            --bd: rgba(139, 92, 246, .16);
+            --bd2: rgba(139, 92, 246, .38);
+            --purple: #8B5CF6;
+            --blue: #3B82F6;
+            --cyan: #06B6D4;
+            --pink: #EC4899;
+            --green: #10B981;
+            --grad: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            --text: #E2E8F0;
+            --muted: #94A3B8;
+            --dim: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Sora', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* dot-grid bg */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
             background:
-                radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.18), transparent 25%),
-                radial-gradient(circle at 90% 20%, rgba(6, 182, 212, 0.12), transparent 25%),
-                linear-gradient(135deg, #020617 0%, #0F172A 50%, #111827 100%);
-            color: #CBD5E1;
-            min-height: 100vh;
+                radial-gradient(ellipse 60% 50% at 15% 10%, rgba(139, 92, 246, .09), transparent),
+                radial-gradient(ellipse 50% 50% at 85% 85%, rgba(59, 130, 246, .09), transparent),
+                radial-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px);
+            background-size: 100%, 100%, 26px 26px;
         }
 
-        .glass-card {
-            background: rgba(15, 23, 42, 0.72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(148, 163, 184, 0.16);
-            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
-        }
-
-        .gradient-border {
+        main,
+        header {
             position: relative;
-            overflow: hidden;
+            z-index: 1;
         }
 
-        .gradient-border::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            padding: 1px;
-            border-radius: 1.5rem;
-            background: linear-gradient(135deg, rgba(139, 92, 246, .6), rgba(59, 130, 246, .4), rgba(6, 182, 212, .35));
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .section-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(148, 163, 184, 0.14);
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(139, 92, 246, .04), rgba(59, 130, 246, .03), rgba(6, 182, 212, .03));
-            pointer-events: none;
-        }
-
-        .section-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(2, 6, 23, 0.55);
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-up.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .nav-link.active {
-            background: linear-gradient(90deg, rgba(139, 92, 246, .18), rgba(59, 130, 246, .18));
-            color: #ffffff;
-        }
-
-        .progress-fill {
-            width: 0;
-            transition: width 1.1s ease;
-        }
-
-        .grid-pattern {
-            background-image:
-                linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-
-        .glow-text {
-            background: linear-gradient(90deg, #c084fc, #60a5fa, #22d3ee);
+        /* ── Utility ── */
+        .grad-text {
+            background: var(--grad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        .mono {
+            font-family: 'DM Mono', monospace;
+        }
+
+        .sec-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .64rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--purple);
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--bd);
+            border-radius: 16px;
+            transition: border-color .3s, box-shadow .3s;
+        }
+
+        .card:hover {
+            border-color: var(--bd2);
+            box-shadow: 0 0 36px rgba(139, 92, 246, .13);
+        }
+
+        .card-p {
+            padding: 28px;
+        }
+
+        .card2 {
+            background: var(--card2);
+            border: 1px solid var(--bd);
+            border-radius: 12px;
+            transition: all .28s;
+        }
+
+        /* ── Glow ring on sidebar ── */
+        .sidebar-wrap {
+            position: relative;
+        }
+
+        .sidebar-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 17px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, .55), rgba(59, 130, 246, .4), rgba(6, 182, 212, .25));
+            z-index: -1;
+            opacity: .6;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border-radius: 10px;
+            font-size: .83rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-grad {
+            background: var(--grad);
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .btn-grad:hover {
+            opacity: .85;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            padding: 10px 20px;
+            border: 1px solid var(--bd2);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(139, 92, 246, .08);
+            border-color: var(--purple);
+        }
+
+        .btn-sm {
+            padding: 7px 14px;
+            font-size: .76rem;
+            border-radius: 8px;
+        }
+
+        /* ── Badges ── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'DM Mono', monospace;
+            font-size: .67rem;
+            letter-spacing: .05em;
+            padding: 4px 11px;
+            border-radius: 999px;
+        }
+
+        .b-purple {
+            background: rgba(139, 92, 246, .14);
+            color: #C4B5FD;
+            border: 1px solid rgba(139, 92, 246, .28);
+        }
+
+        .b-green {
+            background: rgba(16, 185, 129, .1);
+            color: #6EE7B7;
+            border: 1px solid rgba(16, 185, 129, .22);
+        }
+
+        .b-blue {
+            background: rgba(59, 130, 246, .12);
+            color: #93C5FD;
+            border: 1px solid rgba(59, 130, 246, .28);
+        }
+
+        .b-cyan {
+            background: rgba(6, 182, 212, .1);
+            color: #67E8F9;
+            border: 1px solid rgba(6, 182, 212, .22);
+        }
+
+        /* ── Nav links ── */
+        .nav-l {
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .2s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-l::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--grad);
+            transition: width .3s;
+        }
+
+        .nav-l:hover,
+        .nav-l.active {
+            color: var(--text);
+        }
+
+        .nav-l:hover::after,
+        .nav-l.active::after {
+            width: 100%;
+        }
+
+        /* ── Skill bars ── */
+        .sk-track {
+            height: 5px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .sk-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: var(--grad);
+            width: 0;
+            transition: width 1.4s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        /* ── Tech tags ── */
+        .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: .67rem;
+            color: var(--dim);
+            border: 1px solid var(--bd);
+            border-radius: 6px;
+            padding: 4px 10px;
+            transition: all .2s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            color: var(--purple);
+            border-color: rgba(139, 92, 246, .45);
+            background: rgba(139, 92, 246, .07);
+        }
+
+        /* ── Project cards ── */
+        .proj {
+            background: var(--card2);
+            border: 1px solid var(--bd);
+            border-radius: 14px;
+            padding: 20px;
+            transition: all .3s;
+        }
+
+        .proj:hover {
+            border-color: rgba(139, 92, 246, .42);
+            box-shadow: 0 6px 28px rgba(139, 92, 246, .13);
+            transform: translateY(-3px);
+        }
+
+        /* ── Service cards ── */
+        .svc {
+            background: var(--card2);
+            border: 1px solid var(--bd);
+            border-radius: 12px;
+            padding: 18px;
+            transition: all .28s;
+        }
+
+        .svc:hover {
+            border-color: rgba(59, 130, 246, .38);
+            background: rgba(59, 130, 246, .05);
+        }
+
+        /* ── Stat boxes ── */
+        .stat {
+            background: var(--card2);
+            border: 1px solid var(--bd);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all .25s;
+        }
+
+        .stat:hover {
+            border-color: var(--bd2);
+            background: rgba(139, 92, 246, .07);
+        }
+
+        /* ── Form inputs ── */
+        .finput {
+            width: 100%;
+            background: var(--bg3);
+            border: 1px solid var(--bd);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-family: 'Sora', sans-serif;
+            font-size: .82rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .finput:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, .12);
+        }
+
+        .finput::placeholder {
+            color: var(--dim);
+        }
+
+        /* ── Reveal ── */
+        .rv {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Avatar ring ── */
+        .av-ring {
+            background: var(--grad);
+            padding: 3px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ── Pulse dot ── */
+        @keyframes pdot {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, .45);
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+            }
+        }
+
+        .pdot {
+            animation: pdot 2.2s ease-in-out infinite;
+        }
+
+        /* ── Timeline ── */
+        .tl-line {
+            position: absolute;
+            left: 9px;
+            top: 22px;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(139, 92, 246, .6), transparent);
+        }
+
+        /* ── Mobile menu ── */
+        #mMenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        #mMenu.open {
+            max-height: 400px;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, .35);
+            border-radius: 3px;
+        }
+
+        /* ── Cursor glow ── */
+        #cglow {
+            position: fixed;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139, 92, 246, .06), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: left .1s, top .1s;
+            z-index: 0;
+        }
+
+        /* Number counter */
+        @keyframes countup {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .count-anim {
+            animation: countup .6s ease forwards;
+        }
+
+        /* Neon glow on numbers */
+        .neon-num {
+            text-shadow: 0 0 20px rgba(139, 92, 246, .5);
+        }
     </style>
 </head>
 
-<body class="text-softText">
-    <!-- Mobile Navbar -->
-    <header class="lg:hidden sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="h-16 flex items-center justify-between">
-                <a href="#home" class="text-lg font-bold text-white">Easin Arafat</a>
+<body>
 
-                <button id="menuToggle"
-                    class="rounded-xl border border-white/10 bg-white/5 p-2 text-white hover:bg-white/10 transition"
-                    aria-label="Toggle menu">
-                    <svg id="menuOpenIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <svg id="menuCloseIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+    <div id="cglow"></div>
 
-            <div id="mobileMenu" class="hidden pb-4">
-                <nav class="flex flex-col gap-2">
-                    <a href="#home"
-                        class="nav-link rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Home</a>
-                    <a href="#about"
-                        class="nav-link rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 transition">About</a>
-                    <a href="#skills"
-                        class="nav-link rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Skills</a>
-                    <a href="#projects"
-                        class="nav-link rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Projects</a>
-                    <a href="#contact"
-                        class="nav-link rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Contact</a>
-                </nav>
-            </div>
+    <!-- ── MOBILE NAV ──────────────────────────── -->
+    <header class="lg:hidden sticky top-0 z-50"
+        style="background:rgba(8,11,24,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd);">
+        <div class="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between">
+            <span class="grad-text" style="font-size:1.05rem;font-weight:800;">Easin<span
+                    style="-webkit-text-fill-color:var(--purple)">.</span></span>
+            <button id="mToggle"
+                style="background:var(--card2);border:1px solid var(--bd);border-radius:8px;padding:8px;cursor:pointer;"
+                aria-label="menu">
+                <svg id="ico1" class="w-5 h-5 block" fill="none" viewBox="0 0 24 24" stroke="var(--muted)"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h16" />
+                </svg>
+                <svg id="ico2" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="var(--muted)"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div id="mMenu" style="background:var(--card);border-top:1px solid var(--bd);">
+            <nav style="display:flex;flex-direction:column;padding:10px 20px;gap:2px;">
+                <a href="#home"
+                    style="padding:10px 0;font-size:.82rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--bd);">Home</a>
+                <a href="#about"
+                    style="padding:10px 0;font-size:.82rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--bd);">About</a>
+                <a href="#skills"
+                    style="padding:10px 0;font-size:.82rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--bd);">Skills</a>
+                <a href="#projects"
+                    style="padding:10px 0;font-size:.82rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--bd);">Projects</a>
+                <a href="#contact"
+                    style="padding:10px 0;font-size:.82rem;color:var(--muted);text-decoration:none;">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,1fr)] gap-6 xl:gap-8 items-start">
+    <!-- ── MAIN LAYOUT ──────────────────────────── -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-[288px_1fr] gap-6 xl:gap-8 items-start">
 
-            <!-- Sidebar -->
-            <aside class="lg:sticky lg:top-8 fade-up">
-                <div class="section-card gradient-border grid-pattern p-0">
-                    <div class="p-6 sm:p-8 relative z-10">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="relative mb-5">
-                                <div
-                                    class="absolute inset-0 rounded-full blur-2xl bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-cyan-400/30">
-                                </div>
+            <!-- ════════ SIDEBAR ════════ -->
+            <aside class="lg:sticky lg:top-8 rv sidebar-wrap">
+                <div class="card" style="border-radius:16px;">
+                    <div class="card-p">
+
+                        <!-- Avatar + identity -->
+                        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+                            <div class="av-ring" style="margin-bottom:14px;">
                                 <img src="arafat.jpeg" alt="Easin Arafat"
-                                    class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white/10 shadow-2xl" />
-                                <span
-                                    class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-green-400 border-4 border-slate-900"></span>
+                                    style="width:94px;height:94px;border-radius:50%;object-fit:cover;border:3px solid var(--bg);display:block;" />
                             </div>
 
-                            <span
-                                class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 text-xs font-semibold px-3 py-1 mb-3">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                                Open to opportunities
+                            <span class="badge b-green pdot" style="margin-bottom:12px;">
+                                <span
+                                    style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>
+                                Available for work
                             </span>
 
-                            <h1 class="text-2xl font-bold text-white tracking-tight">Easin Arafat</h1>
-                            <p class="text-sm text-slate-300 mt-1">Aspiring Web Developer</p>
+                            <h1 style="font-size:1.2rem;font-weight:700;color:var(--text);">Easin Arafat</h1>
+                            <p class="mono"
+                                style="font-size:.68rem;color:var(--purple);margin-top:5px;letter-spacing:.06em;">
+                                Aspiring Web Developer</p>
 
-                            <p class="text-sm leading-6 text-slate-400 mt-4 max-w-xs">
-                                Passionate about modern UI, responsive websites, and building practical front-end
-                                projects with a developer mindset.
+                            <p style="font-size:.79rem;color:var(--muted);margin-top:13px;line-height:1.75;">
+                                Passionate about building clean, responsive websites while improving front-end skills
+                                every day.
                             </p>
 
-                            <a href="#contact"
-                                class="mt-6 inline-flex items-center justify-center w-full rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
+                            <a href="#contact" class="btn btn-grad"
+                                style="width:100%;justify-content:center;margin-top:18px;">
                                 Hire Me
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2.2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
                             </a>
                         </div>
 
-                        <div class="mt-8 space-y-4">
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Contact</p>
-                                <div class="space-y-3 text-sm">
-                                    <p class="break-all">
-                                        <span class="font-semibold text-white">Email:</span>
-                                        <a href="mailto:arafatgw5@gmail.com"
-                                            class="text-slate-300 hover:text-cyan-300 transition">
-                                            arafatgw5@gmail.com</a>
-                                    </p>
-                                    <p>
-                                        <span class="font-semibold text-white">Country:</span>
-                                        Bangladesh
-                                    </p>
-                                </div>
-                            </div>
+                        <div style="height:1px;background:var(--bd);margin:22px 0;"></div>
 
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">Social Links</p>
-                                <div class="grid grid-cols-1 gap-3">
-                                    <a href="https://github.com/arafatgw5-cpu" target="_blank"
-                                        class="flex items-center justify-between rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm font-medium text-white hover:border-purple-400/40 hover:text-cyan-300 transition">
-                                        GitHub <span>↗</span>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/easin-arafat-2147473a9/" target="_blank"
-                                        class="flex items-center justify-between rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm font-medium text-white hover:border-purple-400/40 hover:text-cyan-300 transition">
-                                        LinkedIn <span>↗</span>
-                                    </a>
-                                    <a href="https://www.facebook.com/easin.arafat.792602" target="_blank"
-                                        class="flex items-center justify-between rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm font-medium text-white hover:border-purple-400/40 hover:text-cyan-300 transition">
-                                        Facebook <span>↗</span>
-                                    </a>
-                                </div>
+                        <!-- Contact -->
+                        <p class="sec-label" style="margin-bottom:11px;">Contact</p>
+                        <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:4px;">
+                            <a href="mailto:arafatgw5@gmail.com"
+                                style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted);font-size:.78rem;transition:color .2s;"
+                                onmouseover="this.style.color=var(--purple)"
+                                onmouseout="this.style.color='var(--muted)'">
+                                <span
+                                    style="width:30px;height:30px;border-radius:7px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8B5CF6"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </span>
+                                arafatgw5@gmail.com
+                            </a>
+                            <div style="display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--muted);">
+                                <span
+                                    style="width:30px;height:30px;border-radius:7px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#3B82F6"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </span>
+                                Bangladesh
                             </div>
+                        </div>
+
+                        <div style="height:1px;background:var(--bd);margin:18px 0;"></div>
+
+                        <!-- Social -->
+                        <p class="sec-label" style="margin-bottom:11px;">Social</p>
+                        <div style="display:flex;flex-direction:column;gap:7px;">
+                            <a href="https://github.com/arafatgw5-cpu" target="_blank"
+                                style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-radius:9px;background:var(--bg3);border:1px solid var(--bd);text-decoration:none;color:var(--text);font-size:.78rem;font-weight:500;transition:border-color .2s,background .2s;"
+                                onmouseover="this.style.borderColor='rgba(139,92,246,.5)';this.style.background='rgba(139,92,246,.06)'"
+                                onmouseout="this.style.borderColor='var(--bd)';this.style.background='var(--bg3)'">
+                                <span style="display:flex;align-items:center;gap:8px;">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                    GitHub
+                                </span>
+                                <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/easin-arafat-2147473a9/" target="_blank"
+                                style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-radius:9px;background:var(--bg3);border:1px solid var(--bd);text-decoration:none;color:var(--text);font-size:.78rem;font-weight:500;transition:border-color .2s,background .2s;"
+                                onmouseover="this.style.borderColor='rgba(59,130,246,.5)';this.style.background='rgba(59,130,246,.06)'"
+                                onmouseout="this.style.borderColor='var(--bd)';this.style.background='var(--bg3)'">
+                                <span style="display:flex;align-items:center;gap:8px;">
+                                    <svg width="14" height="14" fill="#0A66C2" viewBox="0 0 24 24">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    </svg>
+                                    LinkedIn
+                                </span>
+                                <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/easin.arafat.792602" target="_blank"
+                                style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-radius:9px;background:var(--bg3);border:1px solid var(--bd);text-decoration:none;color:var(--text);font-size:.78rem;font-weight:500;transition:border-color .2s,background .2s;"
+                                onmouseover="this.style.borderColor='rgba(6,182,212,.5)';this.style.background='rgba(6,182,212,.05)'"
+                                onmouseout="this.style.borderColor='var(--bd)';this.style.background='var(--bg3)'">
+                                <span style="display:flex;align-items:center;gap:8px;">
+                                    <svg width="14" height="14" fill="#1877F2" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                    Facebook
+                                </span>
+                                <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
             </aside>
 
-            <!-- Main Content -->
-            <section class="space-y-6">
-                <!-- Desktop Navbar -->
-                <div class="hidden lg:block sticky top-6 z-40 fade-up">
-                    <div class="section-card px-6 py-4">
-                        <div class="flex items-center justify-between gap-4">
-                            <a href="#home" class="text-xl font-bold text-white">Easin Arafat</a>
-                            <nav class="flex items-center gap-2">
-                                <a href="#home"
-                                    class="nav-link rounded-xl px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Home</a>
-                                <a href="#about"
-                                    class="nav-link rounded-xl px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5 transition">About</a>
-                                <a href="#skills"
-                                    class="nav-link rounded-xl px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Skills</a>
-                                <a href="#projects"
-                                    class="nav-link rounded-xl px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Projects</a>
-                                <a href="#contact"
-                                    class="nav-link rounded-xl px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5 transition">Contact</a>
-                            </nav>
-                        </div>
+            <!-- ════════ MAIN ════════ -->
+            <div style="display:flex;flex-direction:column;gap:18px;">
+
+                <!-- Desktop nav -->
+                <nav class="hidden lg:flex rv"
+                    style="align-items:center;justify-content:space-between;background:rgba(18,22,43,.82);backdrop-filter:blur(18px);border:1px solid var(--bd);border-radius:14px;padding:13px 22px;position:sticky;top:22px;z-index:40;">
+                    <span class="grad-text" style="font-size:1.05rem;font-weight:800;">Easin<span
+                            style="-webkit-text-fill-color:var(--purple)">.</span></span>
+                    <div style="display:flex;gap:22px;align-items:center;">
+                        <a href="#home" class="nav-l">Home</a>
+                        <a href="#about" class="nav-l">About</a>
+                        <a href="#skills" class="nav-l">Skills</a>
+                        <a href="#projects" class="nav-l">Projects</a>
+                        <a href="#contact" class="nav-l">Contact</a>
                     </div>
-                </div>
+                </nav>
 
-                <!-- Hero -->
-                <section id="home" class="section-card fade-up bg-heroGlow">
-                    <div class="grid md:grid-cols-[1.3fr_0.7fr] gap-8 items-center relative z-10">
-                        <div>
-                            <p
-                                class="inline-flex items-center gap-2 rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-1 text-xs font-semibold text-purple-300 mb-5">
-                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                                Tech / Developer Portfolio
-                            </p>
+                <!-- ── HERO ── -->
+                <section id="home" class="card rv">
+                    <div class="card-p">
+                        <div class="grid md:grid-cols-[1.5fr_1fr] gap-8 items-center">
+                            <div>
+                                <span class="badge b-purple" style="margin-bottom:16px;">
+                                    <span style="color:var(--purple);">▸</span> Personal Resume Dashboard
+                                </span>
 
-                            <h2
-                                class="text-3xl sm:text-4xl lg:text-[2.9rem] font-bold leading-tight tracking-tight text-white">
-                                Hi, I'm <span class="glow-text">Easin Arafat</span>
-                            </h2>
+                                <h2
+                                    style="font-size:clamp(1.75rem,3.8vw,2.6rem);font-weight:800;color:var(--text);line-height:1.15;letter-spacing:-.02em;">
+                                    Hi, I'm<br />
+                                    <span class="grad-text">Easin Arafat</span>
+                                </h2>
 
-                            <p class="text-lg sm:text-xl text-slate-300 mt-3">
-                                Aspiring Web Developer from Bangladesh
-                            </p>
+                                <p style="font-size:.88rem;color:var(--muted);margin-top:9px;font-weight:500;">
+                                    Aspiring Web Developer — Bangladesh
+                                </p>
 
-                            <p class="mt-5 max-w-2xl text-base leading-7 text-slate-400">
-                                I build clean, responsive, and visually engaging websites with a modern developer
-                                mindset. I am focused on improving my front-end skills, creating practical projects, and
-                                growing into a professional web developer.
-                            </p>
+                                <p
+                                    style="margin-top:14px;font-size:.82rem;line-height:1.82;color:var(--muted);max-width:460px;">
+                                    Focused on learning modern web development, building practical front-end projects,
+                                    and improving problem-solving skills every day.
+                                </p>
 
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="#projects"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    View Projects
-                                </a>
-                                <a href="#contact"
-                                    class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition duration-300">
-                                    Contact Me
-                                </a>
+                                <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;">
+                                    <a href="#projects" class="btn btn-grad">
+                                        View Projects
+                                        <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2.2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </a>
+                                    <a href="#contact" class="btn btn-ghost">Contact Me</a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="rounded-2xl border border-white/10 bg-slate-950/40 p-5 sm:p-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-2xl font-bold text-white">4+</p>
-                                    <p class="text-sm text-slate-400 mt-1">Projects Built</p>
+                            <!-- Stats grid -->
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                                <div class="stat">
+                                    <p class="grad-text neon-num" style="font-size:1.55rem;font-weight:800;">3+</p>
+                                    <p style="font-size:.7rem;color:var(--dim);margin-top:4px;">Projects Built</p>
                                 </div>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-2xl font-bold text-white">5</p>
-                                    <p class="text-sm text-slate-400 mt-1">Core Skills</p>
+                                <div class="stat">
+                                    <p class="grad-text neon-num" style="font-size:1.55rem;font-weight:800;">5</p>
+                                    <p style="font-size:.7rem;color:var(--dim);margin-top:4px;">Core Skills</p>
                                 </div>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-2xl font-bold text-white">Daily</p>
-                                    <p class="text-sm text-slate-400 mt-1">Learning Mode</p>
+                                <div class="stat">
+                                    <p class="grad-text neon-num" style="font-size:1.2rem;font-weight:800;">Daily</p>
+                                    <p style="font-size:.7rem;color:var(--dim);margin-top:4px;">Learning Focus</p>
                                 </div>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-2xl font-bold text-white">100%</p>
-                                    <p class="text-sm text-slate-400 mt-1">Responsive Focus</p>
+                                <div class="stat">
+                                    <p class="grad-text neon-num" style="font-size:1.55rem;font-weight:800;">100%</p>
+                                    <p style="font-size:.7rem;color:var(--dim);margin-top:4px;">Responsive</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- About -->
-                <section id="about" class="section-card fade-up">
-                    <div class="flex items-start justify-between gap-4 flex-wrap">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">About Me</p>
-                            <h3 class="text-2xl font-bold text-white mt-2">Building skills through real practice</h3>
-                        </div>
-                        <span
-                            class="rounded-full border border-purple-400/20 bg-purple-500/10 text-purple-300 px-3 py-1 text-xs font-semibold">
-                            Future Goal: Professional Developer
-                        </span>
-                    </div>
-
-                    <div class="mt-6 grid lg:grid-cols-[1.2fr_0.8fr] gap-6">
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                            <p class="leading-7 text-slate-400">
-                                I am learning web development with strong focus on HTML, CSS, JavaScript, and responsive
-                                design. I enjoy building real projects, improving my UI sense, and practicing modern
-                                layouts. Every project helps me grow in confidence and technical understanding. My goal
-                                is to become a skilled professional developer who can build beautiful and user-friendly
-                                web experiences.
-                            </p>
+                <!-- ── ABOUT ── -->
+                <section id="about" class="card rv">
+                    <div class="card-p">
+                        <div
+                            style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px;">
+                            <div>
+                                <p class="sec-label">About Me</p>
+                                <h3 style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;">Growing
+                                    through consistent practice</h3>
+                            </div>
+                            <span class="badge b-cyan">Future Goal: Pro Developer</span>
                         </div>
 
-                        <div class="space-y-4">
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-sm font-semibold text-white">Current Focus</p>
-                                <p class="text-sm text-slate-400 mt-2">Modern UI, responsive layout, front-end projects,
-                                    and JavaScript interactions.</p>
-                            </div>
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-sm font-semibold text-white">Developer Vibe</p>
-                                <p class="text-sm text-slate-400 mt-2">Clean code, polished design, consistency, and
-                                    continuous daily improvement.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Skills -->
-                <section id="skills" class="section-card fade-up">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Skills</p>
-                    <h3 class="text-2xl font-bold text-white mt-2">My core front-end strengths</h3>
-
-                    <div class="mt-6 grid md:grid-cols-2 gap-5">
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="font-medium text-white">HTML</span>
-                                    <span class="text-sm text-slate-400">90%</span>
-                                </div>
-                                <div class="h-3 rounded-full bg-slate-800 overflow-hidden">
-                                    <div class="progress-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                                        data-width="90%"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="font-medium text-white">CSS</span>
-                                    <span class="text-sm text-slate-400">85%</span>
-                                </div>
-                                <div class="h-3 rounded-full bg-slate-800 overflow-hidden">
-                                    <div class="progress-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                                        data-width="85%"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="font-medium text-white">JavaScript</span>
-                                    <span class="text-sm text-slate-400">75%</span>
-                                </div>
-                                <div class="h-3 rounded-full bg-slate-800 overflow-hidden">
-                                    <div class="progress-fill h-full rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                                        data-width="75%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="font-medium text-white">Responsive Design</span>
-                                    <span class="text-sm text-slate-400">88%</span>
-                                </div>
-                                <div class="h-3 rounded-full bg-slate-800 overflow-hidden">
-                                    <div class="progress-fill h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
-                                        data-width="88%"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="font-medium text-white">DOM Manipulation</span>
-                                    <span class="text-sm text-slate-400">70%</span>
-                                </div>
-                                <div class="h-3 rounded-full bg-slate-800 overflow-hidden">
-                                    <div class="progress-fill h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
-                                        data-width="70%"></div>
-                                </div>
-                            </div>
-
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                <p class="text-sm font-semibold text-white">Growth Note</p>
-                                <p class="text-sm leading-6 text-slate-400 mt-2">
-                                    I improve by building assignments, recreating UI layouts, and practicing modern web
-                                    patterns consistently.
+                        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-5">
+                            <div
+                                style="background:var(--card2);border:1px solid var(--bd);border-radius:11px;padding:18px;">
+                                <p style="font-size:.82rem;line-height:1.82;color:var(--muted);">
+                                    I am currently learning web development with strong focus on front-end fundamentals.
+                                    I enjoy building real projects, improving my design sense, and practicing clean
+                                    code. Every project helps me grow more confident with layout building, responsive
+                                    design, and interactive web experiences. My long-term goal is to become a
+                                    professional developer.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Services -->
-                <section class="section-card fade-up">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Services</p>
-                    <h3 class="text-2xl font-bold text-white mt-2">What I can build</h3>
-
-                    <div class="mt-6 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                        <div
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 flex items-center justify-center text-xl mb-4">
-                                🎨</div>
-                            <h4 class="text-lg font-semibold text-white">Front-end Web Design</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Clean and modern interface design with
-                                balanced layout and premium look.</p>
-                        </div>
-
-                        <div
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300 flex items-center justify-center text-xl mb-4">
-                                📱</div>
-                            <h4 class="text-lg font-semibold text-white">Responsive Layout</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Mobile-first layouts that look smooth on
-                                phone, tablet, and desktop.</p>
-                        </div>
-
-                        <div
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-blue-300 flex items-center justify-center text-xl mb-4">
-                                💼</div>
-                            <h4 class="text-lg font-semibold text-white">Portfolio Website Development</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Professional portfolio pages with strong
-                                visual hierarchy and polished cards.</p>
-                        </div>
-
-                        <div
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 flex items-center justify-center text-xl mb-4">
-                                🧩</div>
-                            <h4 class="text-lg font-semibold text-white">UI Practice</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Modern section layouts, dashboard styling,
-                                and visually rich interface practice.</p>
-                        </div>
-
-                        <div
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300 flex items-center justify-center text-xl mb-4">
-                                ⚡</div>
-                            <h4 class="text-lg font-semibold text-white">JavaScript Interaction</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Menus, scroll effects, hover transitions,
-                                and basic interactive components.</p>
-                        </div>
-
-                        <div
-                            class="rounded-2xl border border-dashed border-cyan-400/20 bg-cyan-400/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 flex items-center justify-center text-xl mb-4">
-                                🚀</div>
-                            <h4 class="text-lg font-semibold text-white">Growth-Focused Work</h4>
-                            <p class="mt-2 text-sm leading-6 text-slate-400">Always learning better design, stronger
-                                code structure, and improved presentation quality.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Projects -->
-                <section id="projects" class="section-card fade-up">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Projects</p>
-                    <h3 class="text-2xl font-bold text-white mt-2">Recent work and assignments</h3>
-
-                    <div class="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-                        <article
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div class="flex items-center justify-between gap-3 mb-4">
-                                <span
-                                    class="rounded-full bg-purple-500/15 px-3 py-1 text-xs font-semibold text-purple-300">Project
-                                    01</span>
-                                <span class="text-slate-500">↗</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Assignment B13 A2</h4>
-                            <p class="mt-3 text-sm leading-6 text-slate-400">
-                                A practical front-end assignment project focused on layout building, section structure,
-                                and responsive presentation.
-                            </p>
-                            <div class="mt-5 flex flex-wrap gap-3">
-                                <a href="https://github.com/arafatgw5-cpu/Assingment-B13---A2" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2.5 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    GitHub
-                                </a>
-                                <a href="https://arafatgw5-cpu.github.io/Assingment-B13---A2/" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition duration-300">
-                                    Live
-                                </a>
-                            </div>
-                        </article>
-
-                        <article
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div class="flex items-center justify-between gap-3 mb-4">
-                                <span
-                                    class="rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-300">Project
-                                    02</span>
-                                <span class="text-slate-500">↗</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Assignment B13 4A</h4>
-                            <p class="mt-3 text-sm leading-6 text-slate-400">
-                                A front-end practice project demonstrating structured content sections, styling
-                                consistency, and responsive design work.
-                            </p>
-                            <div class="mt-5 flex flex-wrap gap-3">
-                                <a href="https://github.com/arafatgw5-cpu/Assingment-B13-4A" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2.5 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    GitHub
-                                </a>
-                                <a href="https://arafatgw5-cpu.github.io/Assingment-B13-4A/" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition duration-300">
-                                    Live
-                                </a>
-                            </div>
-                        </article>
-
-                        <article
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div class="flex items-center justify-between gap-3 mb-4">
-                                <span
-                                    class="rounded-full bg-cyan-500/15 px-3 py-1 text-xs font-semibold text-cyan-300">Project
-                                    03</span>
-                                <span class="text-slate-500">↗</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Assignment 5 B13</h4>
-                            <p class="mt-3 text-sm leading-6 text-slate-400">
-                                A web project built through learning and practice, focused on improving UI layout,
-                                responsiveness, and clean code habits.
-                            </p>
-                            <div class="mt-5 flex flex-wrap gap-3">
-                                <a href="https://github.com/arafatgw5-cpu/Assignment-5-B13" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2.5 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    GitHub
-                                </a>
-                                <a href="https://arafatgw5-cpu.github.io/Assignment-5-B13/" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition duration-300">
-                                    Live
-                                </a>
-                            </div>
-                        </article>
-
-                        <article
-                            class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:shadow-lg hover:-translate-y-2 transition duration-300">
-                            <div class="flex items-center justify-between gap-3 mb-4">
-                                <span
-                                    class="rounded-full bg-purple-500/15 px-3 py-1 text-xs font-semibold text-purple-300">Project
-                                    04</span>
-                                <span class="text-slate-500">↗</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Assignment 6 B13</h4>
-                            <p class="mt-3 text-sm leading-6 text-slate-400">
-                                A modern tool-based project focused on useful UI structure, responsive layout, and clean
-                                interaction design.
-                            </p>
-                            <div class="mt-5 flex flex-wrap gap-3">
-                                <a href="https://github.com/arafatgw5-cpu/Assignment-6-B13" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2.5 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    GitHub
-                                </a>
-                                <a href="https://digitools-assignment-ba13-6.netlify.app/" target="_blank"
-                                    class="inline-flex items-center justify-center rounded-xl border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition duration-300">
-                                    Live
-                                </a>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <!-- Journey -->
-                <section class="section-card fade-up">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Education / Journey</p>
-                    <h3 class="text-2xl font-bold text-white mt-2">My developer journey</h3>
-
-                    <div class="mt-6 relative">
-                        <div class="absolute left-4 top-0 bottom-0 w-px bg-white/10"></div>
-
-                        <div class="space-y-5">
-                            <div class="relative pl-12">
-                                <span
-                                    class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">1</span>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <h4 class="font-semibold text-white">Learning web development</h4>
-                                    <p class="text-sm text-slate-400 mt-2 leading-6">Building a strong foundation in
-                                        HTML, CSS, JavaScript, and responsive design.</p>
+                            <div style="display:flex;flex-direction:column;gap:10px;">
+                                <div
+                                    style="background:var(--card2);border:1px solid var(--bd);border-radius:11px;padding:16px;">
+                                    <p
+                                        style="font-size:.8rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px;">
+                                        <span
+                                            style="width:6px;height:6px;border-radius:50%;background:var(--purple);"></span>Current
+                                        Focus
+                                    </p>
+                                    <p style="font-size:.78rem;color:var(--muted);margin-top:7px;line-height:1.7;">
+                                        Responsive websites, layout structure, UI polish, and JavaScript interactions.
+                                    </p>
                                 </div>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <span
-                                    class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold">2</span>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <h4 class="font-semibold text-white">Practicing front-end development</h4>
-                                    <p class="text-sm text-slate-400 mt-2 leading-6">Improving UI structure, design
-                                        consistency, spacing, and interactivity through practice.</p>
-                                </div>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <span
-                                    class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center text-white font-bold">3</span>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <h4 class="font-semibold text-white">Building assignments and projects</h4>
-                                    <p class="text-sm text-slate-400 mt-2 leading-6">Creating real projects to sharpen
-                                        layout building, responsiveness, and coding habits.</p>
-                                </div>
-                            </div>
-
-                            <div class="relative pl-12">
-                                <span
-                                    class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold">4</span>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <h4 class="font-semibold text-white">Goal: become a professional developer</h4>
-                                    <p class="text-sm text-slate-400 mt-2 leading-6">Continuing to learn modern
-                                        workflows, better design systems, and stronger development practices.</p>
+                                <div
+                                    style="background:var(--card2);border:1px solid var(--bd);border-radius:11px;padding:16px;">
+                                    <p
+                                        style="font-size:.8rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px;">
+                                        <span
+                                            style="width:6px;height:6px;border-radius:50%;background:var(--cyan);"></span>Mindset
+                                    </p>
+                                    <p style="font-size:.78rem;color:var(--muted);margin-top:7px;line-height:1.7;">Learn
+                                        daily, build consistently, and improve project quality step by step.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Contact -->
-                <section id="contact" class="section-card fade-up">
-                    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">Contact</p>
-                            <h3 class="text-2xl font-bold text-white mt-2">Let’s work together</h3>
-                            <p class="mt-4 text-sm leading-7 text-slate-400">
-                                I’m open to learning opportunities, collaboration, and front-end related work. Feel free
-                                to message me anytime.
-                            </p>
+                <!-- ── SKILLS ── -->
+                <section id="skills" class="card rv">
+                    <div class="card-p">
+                        <p class="sec-label">Skills</p>
+                        <h3
+                            style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;margin-bottom:22px;">
+                            Core front-end capabilities</h3>
 
-                            <div class="mt-6 space-y-4">
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Email</p>
-                                    <a href="mailto:arafatgw5@gmail.com"
-                                        class="font-medium text-white hover:text-cyan-300 transition break-all">
-                                        arafatgw5@gmail.com
-                                    </a>
+                        <div class="grid md:grid-cols-2 gap-x-10 gap-y-5">
+                            <div style="display:flex;flex-direction:column;gap:18px;">
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                        <span style="font-size:.83rem;font-weight:600;color:var(--text);">HTML</span>
+                                        <span class="mono" style="font-size:.7rem;color:var(--purple);">90%</span>
+                                    </div>
+                                    <div class="sk-track">
+                                        <div class="sk-fill" data-w="90"></div>
+                                    </div>
                                 </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                        <span style="font-size:.83rem;font-weight:600;color:var(--text);">CSS</span>
+                                        <span class="mono" style="font-size:.7rem;color:var(--purple);">85%</span>
+                                    </div>
+                                    <div class="sk-track">
+                                        <div class="sk-fill" data-w="85"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                        <span
+                                            style="font-size:.83rem;font-weight:600;color:var(--text);">JavaScript</span>
+                                        <span class="mono" style="font-size:.7rem;color:var(--purple);">75%</span>
+                                    </div>
+                                    <div class="sk-track">
+                                        <div class="sk-fill" data-w="75"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:18px;">
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                        <span style="font-size:.83rem;font-weight:600;color:var(--text);">Responsive
+                                            Design</span>
+                                        <span class="mono" style="font-size:.7rem;color:var(--purple);">88%</span>
+                                    </div>
+                                    <div class="sk-track">
+                                        <div class="sk-fill" data-w="88"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                                        <span style="font-size:.83rem;font-weight:600;color:var(--text);">DOM
+                                            Manipulation</span>
+                                        <span class="mono" style="font-size:.7rem;color:var(--purple);">70%</span>
+                                    </div>
+                                    <div class="sk-track">
+                                        <div class="sk-fill" data-w="70"></div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.18);border-radius:10px;padding:14px;">
+                                    <p style="font-size:.78rem;font-weight:600;color:var(--text);">📈 Growth Note</p>
+                                    <p style="font-size:.75rem;color:var(--muted);margin-top:6px;line-height:1.7;">
+                                        Continuously improving through assignments, hands-on practice, and real
+                                        interface layouts.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                    <p class="text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">Social</p>
-                                    <div class="flex flex-wrap gap-3">
-                                        <a href="https://github.com/arafatgw5-cpu" target="_blank"
-                                            class="rounded-xl border border-white/15 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition">GitHub</a>
-                                        <a href="https://www.linkedin.com/in/easin-arafat-2147473a9/" target="_blank"
-                                            class="rounded-xl border border-white/15 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition">LinkedIn</a>
-                                        <a href="https://www.facebook.com/easin.arafat.792602" target="_blank"
-                                            class="rounded-xl border border-white/15 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition">Facebook</a>
+                        <!-- Tags -->
+                        <div
+                            style="margin-top:20px;padding-top:18px;border-top:1px solid var(--bd);display:flex;flex-wrap:wrap;gap:7px;">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">Flexbox</span>
+                            <span class="tag">CSS Grid</span>
+                            <span class="tag">Git & GitHub</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── SERVICES ── -->
+                <section class="card rv">
+                    <div class="card-p">
+                        <p class="sec-label">Services</p>
+                        <h3
+                            style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;margin-bottom:20px;">
+                            What I can help with</h3>
+
+                        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                            <div class="svc">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    🎨</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">
+                                    Front-end Web Design</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Clean section layouts,
+                                    elegant spacing, and modern UI structure for websites.</p>
+                            </div>
+                            <div class="svc">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    📱</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">
+                                    Responsive Layout</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Mobile-first design that
+                                    adapts smoothly across phones, tablets, and desktops.</p>
+                            </div>
+                            <div class="svc">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    💼</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">
+                                    Portfolio Development</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Personal portfolio pages
+                                    with strong visual hierarchy and polished presentation.</p>
+                            </div>
+                            <div class="svc">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.18);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    🧩</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">UI
+                                    Practice</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Interface recreation and
+                                    design practice inspired by modern dashboard systems.</p>
+                            </div>
+                            <div class="svc">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    ⚡</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">JS
+                                    Interactions</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Menus, smooth effects,
+                                    scroll animations, and form handling.</p>
+                            </div>
+                            <div class="svc" style="border-style:dashed;">
+                                <div
+                                    style="width:38px;height:38px;border-radius:10px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px;">
+                                    🚀</div>
+                                <h4 style="font-size:.84rem;font-weight:600;color:var(--text);margin-bottom:6px;">
+                                    Growth-Focused Work</h4>
+                                <p style="font-size:.75rem;color:var(--muted);line-height:1.7;">Always learning and
+                                    improving to deliver cleaner, better results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── PROJECTS ── -->
+                <section id="projects" class="card rv">
+                    <div class="card-p">
+                        <p class="sec-label">Projects</p>
+                        <h3
+                            style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;margin-bottom:20px;">
+                            Recent work & assignments</h3>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <!-- P1 -->
+                            <article class="proj">
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                                    <span class="badge b-purple mono" style="font-size:.65rem;">01</span>
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </div>
+                                <h4 style="font-size:.9rem;font-weight:600;color:var(--text);">Assignment B13 A2</h4>
+                                <p style="font-size:.76rem;color:var(--muted);margin-top:8px;line-height:1.75;">A
+                                    practical front-end assignment focused on layout building, section structure, and
+                                    responsive presentation.</p>
+                                <div style="display:flex;gap:8px;margin-top:14px;">
+                                    <a href="https://github.com/arafatgw5-cpu/Assingment-B13---A2" target="_blank"
+                                        class="btn btn-grad btn-sm" style="flex:1;justify-content:center;">GitHub</a>
+                                    <a href="https://arafatgw5-cpu.github.io/Assingment-B13---A2/" target="_blank"
+                                        class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Live ↗</a>
+                                </div>
+                            </article>
+                            <!-- P2 -->
+                            <article class="proj">
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                                    <span class="badge b-blue mono" style="font-size:.65rem;">02</span>
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </div>
+                                <h4 style="font-size:.9rem;font-weight:600;color:var(--text);">Assignment B13 4A</h4>
+                                <p style="font-size:.76rem;color:var(--muted);margin-top:8px;line-height:1.75;">
+                                    Demonstrating structured content sections, styling consistency, and responsive
+                                    design work.</p>
+                                <div style="display:flex;gap:8px;margin-top:14px;">
+                                    <a href="https://github.com/arafatgw5-cpu/Assingment-B13-4A" target="_blank"
+                                        class="btn btn-grad btn-sm" style="flex:1;justify-content:center;">GitHub</a>
+                                    <a href="https://arafatgw5-cpu.github.io/Assingment-B13-4A/" target="_blank"
+                                        class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Live ↗</a>
+                                </div>
+                            </article>
+                            <!-- P3 -->
+                            <article class="proj">
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                                    <span class="badge b-cyan mono" style="font-size:.65rem;">03</span>
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </div>
+                                <h4 style="font-size:.9rem;font-weight:600;color:var(--text);">Assignment 5 B13</h4>
+                                <p style="font-size:.76rem;color:var(--muted);margin-top:8px;line-height:1.75;">Focused
+                                    on improving UI layout, responsiveness, and clean code habits through hands-on
+                                    practice.</p>
+                                <div style="display:flex;gap:8px;margin-top:14px;">
+                                    <a href="https://github.com/arafatgw5-cpu/Assignment-5-B13" target="_blank"
+                                        class="btn btn-grad btn-sm" style="flex:1;justify-content:center;">GitHub</a>
+                                    <a href="https://arafatgw5-cpu.github.io/Assignment-5-B13/" target="_blank"
+                                        class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Live ↗</a>
+                                </div>
+                            </article>
+                            <!-- P4 -->
+                            <article class="proj">
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                                    <span class="badge b-green mono" style="font-size:.65rem;">04</span>
+                                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--dim)"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </div>
+                                <h4 style="font-size:.9rem;font-weight:600;color:var(--text);">Assignment 6 B13</h4>
+                                <p style="font-size:.76rem;color:var(--muted);margin-top:8px;line-height:1.75;">A modern
+                                    web project with a digital tool interface — responsive layout, structured sections,
+                                    and clean design.</p>
+                                <div style="display:flex;gap:8px;margin-top:14px;">
+                                    <a href="https://github.com/arafatgw5-cpu/Assignment-6-B13" target="_blank"
+                                        class="btn btn-grad btn-sm" style="flex:1;justify-content:center;">GitHub</a>
+                                    <a href="https://digitools-assignment-ba13-6.netlify.app/" target="_blank"
+                                        class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Live ↗</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── JOURNEY ── -->
+                <section class="card rv">
+                    <div class="card-p">
+                        <p class="sec-label">Education / Journey</p>
+                        <h3
+                            style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;margin-bottom:22px;">
+                            My learning path</h3>
+
+                        <div style="position:relative;padding-left:28px;">
+                            <div class="tl-line"></div>
+                            <div style="display:flex;flex-direction:column;gap:14px;">
+                                <!-- step 1 -->
+                                <div style="position:relative;">
+                                    <div
+                                        style="position:absolute;left:-28px;top:3px;width:19px;height:19px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(139,92,246,.5);">
+                                        <svg width="9" height="9" fill="white" viewBox="0 0 24 24">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        style="background:var(--card2);border:1px solid rgba(139,92,246,.22);border-radius:11px;padding:14px 16px;">
+                                        <h4 style="font-size:.83rem;font-weight:600;color:var(--text);">Learning web
+                                            development</h4>
+                                        <p style="font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.7;">
+                                            Building strong basics in HTML, CSS, and JavaScript with daily study and
+                                            practice.</p>
+                                    </div>
+                                </div>
+                                <!-- step 2 -->
+                                <div style="position:relative;">
+                                    <div
+                                        style="position:absolute;left:-28px;top:3px;width:19px;height:19px;border-radius:50%;background:var(--card2);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;">
+                                        <div style="width:6px;height:6px;border-radius:50%;background:var(--blue);">
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="background:var(--card2);border:1px solid var(--bd);border-radius:11px;padding:14px 16px;">
+                                        <h4 style="font-size:.83rem;font-weight:600;color:var(--text);">Practicing
+                                            front-end development</h4>
+                                        <p style="font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.7;">
+                                            Improving layout design, responsive structure, spacing, and card-based UI
+                                            presentation.</p>
+                                    </div>
+                                </div>
+                                <!-- step 3 -->
+                                <div style="position:relative;">
+                                    <div
+                                        style="position:absolute;left:-28px;top:3px;width:19px;height:19px;border-radius:50%;background:var(--card2);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;">
+                                        <div style="width:6px;height:6px;border-radius:50%;background:var(--cyan);">
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="background:var(--card2);border:1px solid var(--bd);border-radius:11px;padding:14px 16px;">
+                                        <h4 style="font-size:.83rem;font-weight:600;color:var(--text);">Building
+                                            assignments and projects</h4>
+                                        <p style="font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.7;">
+                                            Using practical projects to strengthen confidence and improve coding
+                                            quality.</p>
+                                    </div>
+                                </div>
+                                <!-- step 4 -->
+                                <div style="position:relative;">
+                                    <div
+                                        style="position:absolute;left:-28px;top:3px;width:19px;height:19px;border-radius:50%;background:rgba(251,191,36,.12);border:1px dashed rgba(251,191,36,.5);display:flex;align-items:center;justify-content:center;">
+                                        <svg width="9" height="9" fill="#FCD34D" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        style="background:rgba(251,191,36,.05);border:1px dashed rgba(251,191,36,.3);border-radius:11px;padding:14px 16px;">
+                                        <h4 style="font-size:.83rem;font-weight:600;color:#FCD34D;">Goal: become a
+                                            professional developer</h4>
+                                        <p style="font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.7;">
+                                            Continuing to learn modern tools and best practices to grow into a skilled
+                                            web developer.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
 
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
-                            <form id="contactForm" class="space-y-4">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-white mb-2">Name</label>
-                                    <input id="name" name="name" type="text" placeholder="Your name"
-                                        class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition"
-                                        required />
+                <!-- ── CONTACT ── -->
+                <section id="contact" class="card rv">
+                    <div class="card-p">
+                        <div class="grid lg:grid-cols-[1fr_1.1fr] gap-7">
+                            <!-- Left -->
+                            <div>
+                                <p class="sec-label">Contact</p>
+                                <h3
+                                    style="font-size:1.15rem;font-weight:700;color:var(--text);margin-top:6px;margin-bottom:14px;">
+                                    Let's connect</h3>
+                                <p style="font-size:.81rem;line-height:1.82;color:var(--muted);">Open to collaboration,
+                                    learning opportunities, and front-end related work. Feel free to reach out via email
+                                    or social platforms.</p>
+
+                                <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
+                                    <a href="mailto:arafatgw5@gmail.com"
+                                        style="display:flex;align-items:center;gap:12px;padding:13px;border-radius:11px;background:var(--card2);border:1px solid var(--bd);text-decoration:none;transition:border-color .2s;"
+                                        onmouseover="this.style.borderColor='rgba(139,92,246,.45)'"
+                                        onmouseout="this.style.borderColor='var(--bd)'">
+                                        <span
+                                            style="width:36px;height:36px;border-radius:9px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#8B5CF6"
+                                                stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                        </span>
+                                        <div>
+                                            <p class="mono"
+                                                style="font-size:.62rem;color:var(--dim);letter-spacing:.14em;text-transform:uppercase;">
+                                                Email</p>
+                                            <p style="font-size:.8rem;font-weight:500;color:var(--text);">
+                                                arafatgw5@gmail.com</p>
+                                        </div>
+                                    </a>
+
+                                    <div style="display:flex;gap:8px;">
+                                        <a href="https://github.com/arafatgw5-cpu" target="_blank"
+                                            class="btn btn-ghost btn-sm"
+                                            style="flex:1;justify-content:center;">GitHub</a>
+                                        <a href="https://www.linkedin.com/in/easin-arafat-2147473a9/" target="_blank"
+                                            class="btn btn-ghost btn-sm"
+                                            style="flex:1;justify-content:center;">LinkedIn</a>
+                                        <a href="https://www.facebook.com/easin.arafat.792602" target="_blank"
+                                            class="btn btn-ghost btn-sm"
+                                            style="flex:1;justify-content:center;">Facebook</a>
+                                    </div>
                                 </div>
+                            </div>
 
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
-                                    <input id="email" name="email" type="email" placeholder="Your email"
-                                        class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 transition"
-                                        required />
-                                </div>
-
-                                <div>
-                                    <label for="message"
-                                        class="block text-sm font-medium text-white mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Write your message..."
-                                        class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition resize-none"
-                                        required></textarea>
-                                </div>
-
-                                <button type="submit"
-                                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white hover:scale-[1.02] transition duration-300">
-                                    Send Message
-                                </button>
-
-                                <p id="formMessage" class="text-sm font-medium hidden"></p>
-                            </form>
+                            <!-- Right: Form -->
+                            <div
+                                style="background:var(--card2);border:1px solid var(--bd);border-radius:13px;padding:22px;">
+                                <form id="cForm" novalidate style="display:flex;flex-direction:column;gap:14px;">
+                                    <div>
+                                        <label
+                                            style="display:block;font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:6px;">Name</label>
+                                        <input type="text" name="name" placeholder="Your name" class="finput"
+                                            required />
+                                    </div>
+                                    <div>
+                                        <label
+                                            style="display:block;font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:6px;">Email</label>
+                                        <input type="email" name="email" placeholder="Your email" class="finput"
+                                            required />
+                                    </div>
+                                    <div>
+                                        <label
+                                            style="display:block;font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:6px;">Message</label>
+                                        <textarea name="message" rows="4" placeholder="Write your message..."
+                                            class="finput" required style="resize:none;"></textarea>
+                                    </div>
+                                    <button type="submit" id="subBtn" class="btn btn-grad"
+                                        style="justify-content:center;">
+                                        Send Message
+                                        <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                        </svg>
+                                    </button>
+                                    <p id="fMsg"
+                                        style="display:none;font-size:.75rem;font-weight:500;text-align:center;border-radius:7px;padding:8px 12px;">
+                                    </p>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Footer -->
-                <footer class="fade-up">
-                    <div class="section-card py-5">
-                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-                            <p class="text-slate-400">© 2026 Easin Arafat. All rights reserved.</p>
-                            <p class="text-slate-500">Premium vibrant developer portfolio dashboard.</p>
-                        </div>
+                <!-- ── FOOTER ── -->
+                <footer class="rv">
+                    <div class="card"
+                        style="padding:16px 22px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:space-between;flex-wrap:wrap;"
+                        class="sm:flex-row">
+                        <p style="font-size:.78rem;color:var(--muted);">© 2026 <span class="grad-text"
+                                style="font-weight:600;">Easin Arafat</span>. All rights reserved.</p>
+                        <p class="mono" style="font-size:.65rem;color:var(--dim);">Premium developer portfolio.</p>
                     </div>
                 </footer>
-            </section>
-        </div>
+
+            </div><!-- /main -->
+        </div><!-- /grid -->
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        // Cursor glow
+        const cg = document.getElementById('cglow');
+        document.addEventListener('mousemove', e => {
+            cg.style.left = e.clientX + 'px';
+            cg.style.top = e.clientY + 'px';
+        });
+
+        // Mobile nav
+        const mToggle = document.getElementById('mToggle');
+        const mMenu = document.getElementById('mMenu');
+        const ico1 = document.getElementById('ico1');
+        const ico2 = document.getElementById('ico2');
+        mToggle.addEventListener('click', () => {
+            const open = mMenu.classList.toggle('open');
+            ico1.classList.toggle('hidden', open);
+            ico2.classList.toggle('hidden', !open);
+        });
+        mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            mMenu.classList.remove('open');
+            ico1.classList.remove('hidden');
+            ico2.classList.add('hidden');
+        }));
+
+        // Reveal on scroll
+        const rvEls = document.querySelectorAll('.rv');
+        const rvOb = new IntersectionObserver(entries => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('on'), i * 55);
+                    rvOb.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.07 });
+        rvEls.forEach(el => rvOb.observe(el));
+
+        // Skill bars
+        const skOb = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.querySelectorAll('.sk-fill').forEach(b => b.style.width = b.dataset.w + '%');
+                    skOb.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('#skills').forEach(el => skOb.observe(el));
+
+        // Active nav
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-l');
+        const navOb = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+            });
+        }, { rootMargin: '-38% 0px -55% 0px' });
+        sections.forEach(s => navOb.observe(s));
+
+        // Contact form
+        document.getElementById('cForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('subBtn');
+            const msg = document.getElementById('fMsg');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:inline;margin-left:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>';
+                btn.disabled = false;
+                msg.style.display = 'block';
+                msg.textContent = '✓ Message sent! I\'ll get back to you soon.';
+                msg.style.cssText = 'display:block;font-size:.75rem;font-weight:500;text-align:center;border-radius:7px;padding:8px 12px;background:rgba(16,185,129,.1);color:#6EE7B7;border:1px solid rgba(16,185,129,.25);';
+                this.reset();
+                setTimeout(() => msg.style.display = 'none', 4500);
+            }, 1200);
+        });
+    </script>
 </body>
 
 </html>
